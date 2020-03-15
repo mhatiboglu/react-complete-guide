@@ -28,6 +28,7 @@ class App extends Component {
         { name: 'Muh', age: 20 },
         { name: event.target.value , age: 6 },
         { name: 'Merve', age: 28 }
+        { name: 'Sam', age: 10 }
       ]
     })
   }
@@ -43,6 +44,7 @@ class App extends Component {
         <Person name={this.state.persons[0].name} age={this.state.persons[0].age}/>
         <Person name={this.state.persons[1].name} age={this.state.persons[1].age}
           changed={this.nameChangedHandler} />
+        <Person name={this.state.persons[2].name} age={this.state.persons[2].age}> Hi there!</Person>
         <Person name={this.state.persons[2].name} age={this.state.persons[2].age}> Hi there!</Person>
       </div>
     );
