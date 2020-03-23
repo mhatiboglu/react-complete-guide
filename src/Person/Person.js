@@ -10,7 +10,7 @@ const Person = (props) => {
             <p style={{ color: 'red' }}>{props.children}</p>
             <input
                 type='text'
-                onChange={props.click}
+                onChange={props.changed}
                 value={props.name} />
         </div>)
 }
