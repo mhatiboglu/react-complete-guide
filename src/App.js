@@ -22,7 +22,7 @@ class App extends Component {
     person.name = event.target.value;
 
     const persons = [...this.state.persons];
-    persons[personIndex] = person; 
+    persons[personIndex] = person;
 
     this.setState({
       persons: persons
@@ -72,10 +72,18 @@ class App extends Component {
       style.backgroundColor = 'red';
     }
 
+    let classes = [];
+    if (this.state.persons.length <= 2) {
+      classes.push('red')
+    }
+    if (this.state.persons.length <= 1) {
+      classes.push('bold')
+    }
+
     return (
       <div className="App">
         <h1>Hi I'm a React App</h1>
-        <p>Thi is really working</p>
+        <p className={classes.join(' ')}>Thi is really working</p>
         <button
           style={style}
           onClick={this.togglePersonsHandler}>Toggle Persons</button>
