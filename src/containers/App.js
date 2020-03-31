@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './App.css';
+import '../containers/App.css';
 import Radium from 'radium'
-import Person from './Person/Person.js'
+import Person from '../components/Persons/Person/Person'
 
 class App extends Component {
   state = {
