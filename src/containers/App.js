@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../containers/App.css';
 import Radium from 'radium'
 import Persons from '../components/Persons/Persons'
+import Cockpit from '../components/Cockpit/Cockpit'
 
 class App extends Component {
   state = {
@@ -47,54 +48,34 @@ class App extends Component {
 
 
   render() {
-    const style = {
-      backgroundColor: 'green',
-      color: 'white',
-      font: 'inherit',
-      border: '1px solid blue',
-      padding: '8px',
-      cursor: 'pointer',
-      marginBottom: '15px',
-      ':hover': {
-        backgroundColor: 'lightgreen',
-        color: 'black'
-      }
-
-    };
+    
 
     let persons = null;
 
     if (this.state.showPersons) {
-      persons = (
-        <div >
+      persons = 
           <Persons
             persons={this.state.persons}
             clicked={this.deletePersonHandler}
             changed={this.nameChangedHandler} />
-        </div>
-      );
-      style.backgroundColor = 'red';
-      style[':hover'] = {
-        backgroundColor: 'salmon',
-        color: 'black'
-      }
+        
+      ;
+      // style.backgroundColor = 'red';
+      // style[':hover'] = {
+      //   backgroundColor: 'salmon',
+      //   color: 'black'
+      // }
     }
 
-    let classes = [];
-    if (this.state.persons.length <= 2) {
-      classes.push('red')
-    }
-    if (this.state.persons.length <= 1) {
-      classes.push('bold')
-    }
+   
 
     return (
       <div className="App">
-        <h1>Hi I'm a React App</h1>
-        <p className={classes.join(' ')}>Thi is really working</p>
-        <button
-          style={style}
-          onClick={this.togglePersonsHandler}>Toggle Persons</button>
+        <Cockpit
+        showPersons={this.state.showPersons}
+        persons ={this.state.persons}
+        toggle={this.togglePersonsHandler}
+        />
         {persons}
       </div>
     );
